@@ -1,8 +1,8 @@
 class TinggiBadan():
     name = ""
-    value = 0
-    min = 0
-    max = 0
+    value = 0.0
+    min = 0.0
+    max = 0.0
 
     def __init__(self, name, min, max):
         self.name = name
@@ -11,16 +11,108 @@ class TinggiBadan():
 
 class BeratBadan():
     name = ""
-    value = 0
-    min = 0
-    max = 0
+    value = 0.0
+    min = 0.0
+    max = 0.0
 
     def __init__(self, name, min, max):
         self.name = name
         self.min = min
         self.max = max
 
+class Deffuzi():
+    name = ""
+    value = 0.0
+
+    def __init__(self, name, value):
+        self.name = name;
+        self.value = value;
+
 if __name__ == '__main__':
+    def Hasil(obj1, obj2):
+        if ((obj1.name == "Sangat Pendek") & (obj2.name == "Sangat Kurus")):
+            return Deffuzi("Sangat Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Sangat Pendek") & (obj2.name == "Kurus")):
+            return Deffuzi("Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Sangat Pendek") & (obj2.name == "Biasa")):
+            return Deffuzi("Agak Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Sangat Pendek") & (obj2.name == "Berat")):
+            return Deffuzi("Tidak Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Sangat Pendek") & (obj2.name == "Sangat Berat")):
+            return Deffuzi("Tidak Sehat", min([obj1.value, obj2.value]))
+
+        # --------------------------------------------------------------------------------------------------------------
+
+        if ((obj1.name == "Pendek") & (obj2.name == "Sangat Kurus")):
+            return Deffuzi("Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Pendek") & (obj2.name == "Kurus")):
+            return Deffuzi("Sangat Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Pendek") & (obj2.name == "Biasa")):
+            return Deffuzi("Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Pendek") & (obj2.name == "Berat")):
+            return Deffuzi("Agak Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Pendek") & (obj2.name == "Sangat Berat")):
+            return Deffuzi("Tidak Sehat", min([obj1.value, obj2.value]))
+
+        # --------------------------------------------------------------------------------------------------------------
+
+        if ((obj1.name == "Sedang") & (obj2.name == "Sangat Kurus")):
+            return Deffuzi("Agak Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Sedang") & (obj2.name == "Kurus")):
+            return Deffuzi("Sangat Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Sedang") & (obj2.name == "Biasa")):
+            return Deffuzi("Sangat Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Sedang") & (obj2.name == "Berat")):
+            return Deffuzi("Agak Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Sedang") & (obj2.name == "Sangat Berat")):
+            return Deffuzi("Tidak Sehat", min([obj1.value, obj2.value]))
+
+        # --------------------------------------------------------------------------------------------------------------
+
+        if ((obj1.name == "Tinggi") & (obj2.name == "Sangat Kurus")):
+            return Deffuzi("Tidak Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Tinggi") & (obj2.name == "Kurus")):
+            return Deffuzi("Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Tinggi") & (obj2.name == "Biasa")):
+            return Deffuzi("Sangat Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Tinggi") & (obj2.name == "Berat")):
+            return Deffuzi("Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Tinggi") & (obj2.name == "Sangat Berat")):
+            return Deffuzi("Tidak Sehat", min([obj1.value, obj2.value]))
+
+        # --------------------------------------------------------------------------------------------------------------
+
+        if ((obj1.name == "Sangat Tinggi") & (obj2.name == "Sangat Kurus")):
+            return Deffuzi("Tidak Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Sangat Tinggi") & (obj2.name == "Kurus")):
+            return Deffuzi("Agak Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Sangat Tinggi") & (obj2.name == "Biasa")):
+            return Deffuzi("Sangat Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Sangat Tinggi") & (obj2.name == "Berat")):
+            return Deffuzi("Sehat", min([obj1.value, obj2.value]))
+
+        if ((obj1.name == "Sangat Tinggi") & (obj2.name == "Sangat Berat")):
+            return Deffuzi("Agak Sehat", min([obj1.value, obj2.value]))
+
     sangatPendek = TinggiBadan("Sangat Pendek", 0.0, 120.0)
     pendek = TinggiBadan("Pendek", 115.0, 145.0)
     sedang = TinggiBadan("Sedang", 140.0, 165.0)
@@ -38,59 +130,51 @@ if __name__ == '__main__':
     inputTinggi = float(input("Masukkan Tinggi Anda\t: "))
     inputBerat = float(input("Masukkan Berat Badan\t: "))
 
-    i = 0
+    # Tinggi Badan
+    tBadan = []
+    batas = 0.0
     for list in listTinggiBadan:
         if (inputTinggi > list.min) & (inputTinggi < list.max):
-            # print(list.name)
-            a = b = 1
-            nama = list.name
-            if i == 0:
-                pembandingA = list
-                namaA = list.name
-            else:
-                pembandingB = list
-                namaB = list.name
-            i += 1
-    if i == 2:
-        a = (pembandingA.max - inputTinggi) / (pembandingA.max - pembandingB.min)
-        b = (inputTinggi - pembandingB.min) / (pembandingA.max - pembandingB.min)
-        # print(str(a) + " " + str(b))
-    if a == b:
-        print(nama)
-        print("Nilai : " + str(a))
-    else:
-        print(namaA)
-        print("Nilai : " + str(a))
+            tBadan.append(list)
 
-        print(namaB)
-        print("Nilai : " + str(b))
+    if (len(tBadan) == 2):
+        tBadan[0].value = (tBadan[0].max - inputTinggi) / (tBadan[0].max - tBadan[1].min)
+        tBadan[1].value = (inputTinggi - tBadan[0].max) / (tBadan[0].max - tBadan[1].min)
+        if (tBadan[0].value > tBadan[1].value):
+            ftBadan = Deffuzi(tBadan[0].name, tBadan[0].value)
+        else:
+            ftBadan = Deffuzi(tBadan[1].name, tBadan[1].value)
+    else:
+        tBadan[0].value = 1
+        ftBadan = Deffuzi(tBadan[0].name, tBadan[0].value)
+
+    # Berat Badan
+    bBadan = []
+    batas = 0.0
+    for list in listBeratBadan:
+        if (inputBerat > list.min) & (inputBerat < list.max):
+            bBadan.append(list)
+
+    if (len(tBadan) == 2):
+        bBadan[0].value = (bBadan[0].max - inputBerat) / (bBadan[0].max - bBadan[1].min)
+        bBadan[1].value = (inputBerat - bBadan[0].max) / (bBadan[0].max - bBadan[1].min)
+        if (bBadan[0].value > bBadan[1].value):
+            fbBadan = Deffuzi(bBadan[0].name, bBadan[0].value)
+        else:
+            fbBadan = Deffuzi(bBadan[1].name, bBadan[1].value)
+    else:
+        bBadan[0].value = 1
+        fbBadan = Deffuzi(bBadan[0].name, bBadan[0].value)
 
     print("")
 
-    i = 0
-    for list in listBeratBadan:
-        if (inputBerat > list.min) & (inputBerat < list.max):
-            # print(list.name)
-            a = b = 1
-            nama = list.name
-            if i == 0:
-                pembandingA = list
-                namaA = list.name
-            else:
-                pembandingB = list
-                namaB = list.name
-            i += 1
-    if i == 2:
-        a = (pembandingA.max - inputBerat) / (pembandingA.max - pembandingB.min)
-        b = (inputBerat - pembandingB.min) / (pembandingA.max - pembandingB.min)
-        # print(str(a) + " " + str(b))
+    print(ftBadan.name + ", " + str(ftBadan.value))
+    print(fbBadan.name + ", " + str(fbBadan.value))
 
-    # if a == b:
-    #     print(nama)
-    #     print("Nilai : " + str(a))
-    # else:
-    #     print(namaA)
-    #     print("Nilai : " + str(a))
-    #
-    #     print(namaB)
-    #     print("Nilai : " + str(b))
+    print("")
+
+    hasil = Hasil(ftBadan, fbBadan)
+
+    print("Dari data di atas, hasilnya adalah : ")
+    print(hasil.name + " dengan index " + str(hasil.value))
+
